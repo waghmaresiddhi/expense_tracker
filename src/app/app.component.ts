@@ -1,13 +1,32 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'expense_tracker';
+  // State to determine which component to display
+  showLogin = true;
+  showRegister = false;
+  showDashboard = false;
+
+  // Methods to switch between components
+  displayLogin() {
+    this.showLogin = true;
+    this.showRegister = false;
+    this.showDashboard = false;
+  }
+
+  displayRegister() {
+    this.showLogin = false;
+    this.showRegister = true;
+    this.showDashboard = false;
+  }
+
+  displayDashboard() {
+    this.showLogin = false;
+    this.showRegister = false;
+    this.showDashboard = true;
+  }
 }
